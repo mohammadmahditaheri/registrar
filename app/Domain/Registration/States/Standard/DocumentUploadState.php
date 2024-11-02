@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Domain\Registration\States\Basic;
+namespace App\Domain\Registration\States\Standard;
 
 use App\Domain\Registration\RegistrationContext;
 use App\Domain\Registration\RegistrationStateInterface;
+use App\Enums\Steps\StandardStepsEnum;
 
 class DocumentUploadState implements RegistrationStateInterface
 {
@@ -30,6 +31,6 @@ class DocumentUploadState implements RegistrationStateInterface
 
     public function getIdentifier(): string
     {
-        return 'document_upload'
+        return StandardStepsEnum::DOCUMENT_UPLOAD->value;
     }
 }

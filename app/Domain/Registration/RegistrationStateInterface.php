@@ -11,4 +11,6 @@ interface RegistrationStateInterface
     public function validate(array $data): bool;
 
     public function getNextState(): string;
+
+    public function getIdentifier(): string;
 }

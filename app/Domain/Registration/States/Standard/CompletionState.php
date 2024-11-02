@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Domain\Registration\States\Basic;
+namespace App\Domain\Registration\States\Standard;
 
 use App\Domain\Registration\RegistrationContext;
 use App\Domain\Registration\RegistrationStateInterface;
+use App\Enums\Steps\StandardStepsEnum;
 
 class CompletionState implements RegistrationStateInterface
 {
@@ -30,6 +31,6 @@ class CompletionState implements RegistrationStateInterface
 
     public function getIdentifier(): string
     {
-        return 'completion';
+        return StandardStepsEnum::COMPLETION->value;
     }
 }
