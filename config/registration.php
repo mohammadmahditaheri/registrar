@@ -1,12 +1,15 @@
 <?php
 
-use App\Domain\Registration\Plans\BasicRegistrationPlan;
+use App\Domain\Registration\Plans\StandardRegistrationPlan;
 use App\Domain\Registration\Plans\SimplifiedRegistrationPlan;
+use App\Enums\PlansEnum;
+use App\Enums\Steps\SimplifiedStepsEnum as SimplifiedSteps;
+use App\Enums\Steps\StandardStepsEnum as StandardSteps;
 
 return [
     'plans' => [
-        'standard' => [
-            'class' => BasicRegistrationPlan::class,
+        PlansEnum::STANDARD->value => [
+            'class' => StandardRegistrationPlan::class,
             'name' => 'Standard Registration',
 
             /**
@@ -15,29 +18,33 @@ return [
              * ------------------
              */
             'steps' => [
-                'personal_info' => [
+                StandardSteps::PERSONAL_INFO->value => [
                     'order' => 1,
+                    'can_rollback' => false,
                     'validation' => [
                         'name' => 'required|string',
                         'email' => 'required|email',
                         'phone' => 'required|string',
                     ]
                 ],
-                'document_upload' => [
+                StandardSteps::DOCUMENT_UPLOAD->value => [
                     'order' => 2,
+                    'can_rollback' => true,
                     'external_system' => true,
                 ],
-                'verification' => [
+                StandardSteps::VERIFICATION->value => [
                     'order' => 3,
+                    'can_rollback' => true,
                     'external_system' => true,
                 ],
-                'completion' => [
+                StandardSteps::COMPLETION->value => [
+                    'can_rollback' => true,
                     'order' => 4,
                 ],
             ]
         ],
 
-        'simplified' => [
+        PlansEnum::SIMPLIFIED->value => [
           'class' => SimplifiedRegistrationPlan::class,
             'name' => 'Quick Registration',
 
@@ -47,17 +54,17 @@ return [
              * ------------------
              */
             'steps' => [
-                'quick_info' => [
+                SimplifiedSteps::QUICK_INFO->value => [
                     'order' => 1,
                     'validation' => [
                         'email' => 'required|email',
                     ]
                 ],
-                'simplified_verification' => [
+                SimplifiedSteps::VERIFICATION->value => [
                     'order' => 2,
                     'external_system' => true,
                 ],
-                'completion' => [
+                SimplifiedSteps::COMPLETION->value => [
                     'order' => 3,
                 ]
             ]
