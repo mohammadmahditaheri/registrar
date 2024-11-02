@@ -39,11 +39,11 @@ class StandardRegistrationPlan implements RegistrationPlanInterface
         string|RegistrationStateInterface $step
     ): array
     {
-        if ($step instanceof RegistrationStateInterface) {
-            $step->
-        }
+        // if ($step instanceof RegistrationStateInterface) {
+        //     $step->
+        // }
 
-        return config('registration.plans.standard')['']
+        // return config('registration.plans.standard')['']
     }
 
     private function stepsFromConfig(): array

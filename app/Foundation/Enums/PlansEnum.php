@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums;
+namespace App\Foundation\Enums;
 
 enum PlansEnum: string
 {

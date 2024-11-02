@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\Registration\States\Simplified;
+namespace App\Domain\Registration\States\Standard;
 
 use App\Domain\Registration\RegistrationContext;
 use App\Domain\Registration\RegistrationStateInterface;
-use App\Enums\Steps\SimplifiedStepsEnum;
+use App\Foundation\Enums\Steps\StandardStepsEnum;
 
-class SimplifiedVerificationState implements RegistrationStateInterface
+class DocumentUploadState implements RegistrationStateInterface
 {
 
     public function proceed(RegistrationContext $context): void
@@ -31,6 +31,6 @@ class SimplifiedVerificationState implements RegistrationStateInterface
 
     public function getIdentifier(): string
     {
-        return SimplifiedStepsEnum::VERIFICATION->value;
+        return StandardStepsEnum::DOCUMENT_UPLOAD->value;
     }
 }

@@ -4,9 +4,9 @@ namespace App\Domain\Registration\States\Standard;
 
 use App\Domain\Registration\RegistrationContext;
 use App\Domain\Registration\RegistrationStateInterface;
-use App\Enums\Steps\StandardStepsEnum;
+use App\Foundation\Enums\Steps\StandardStepsEnum;
 
-class CompletionState implements RegistrationStateInterface
+class VerificationState implements RegistrationStateInterface
 {
 
     public function proceed(RegistrationContext $context): void
@@ -31,6 +31,6 @@ class CompletionState implements RegistrationStateInterface
 
     public function getIdentifier(): string
     {
-        return StandardStepsEnum::COMPLETION->value;
+        return StandardStepsEnum::VERIFICATION->value;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums\Steps;
+namespace App\Foundation\Enums\Steps;
 
 enum StandardStepsEnum: string
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\Registration\States\Simplified;
+namespace App\Domain\Registration\States\Standard;
 
 use App\Domain\Registration\RegistrationContext;
 use App\Domain\Registration\RegistrationStateInterface;
-use App\Enums\Steps\SimplifiedStepsEnum;
+use App\Foundation\Enums\Steps\StandardStepsEnum;
 
-class QuickInfoState implements RegistrationStateInterface
+class PersonalInfoState implements RegistrationStateInterface
 {
 
     public function proceed(RegistrationContext $context): void
@@ -31,6 +31,6 @@ class QuickInfoState implements RegistrationStateInterface
 
     public function getIdentifier(): string
     {
-        return SimplifiedStepsEnum::QUICK_INFO->value;
+        return StandardStepsEnum::PERSONAL_INFO->value;
     }
 }

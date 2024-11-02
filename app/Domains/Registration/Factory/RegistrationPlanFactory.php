@@ -18,6 +18,8 @@ class RegistrationPlanFactory
     }
 
     /**
+     * @param string $planId
+     * @return RegistrationPlanInterface
      * @throws InvalidPlanException
      */
     public function createPlan(

@@ -16,13 +16,14 @@ class RegistrationContext
     public function __construct(
         RegistrationPlanInterface $plan
     ) {
-        $this->plan = $plan;
+        $this->setPlan($plan);
         $this->currentState = $this->resolveInitialState();
     }
 
     private function resolveInitialState(): RegistrationStateInterface
     {
         // TODO implement
+        // return $this->getPlan()->getInitialState();
     }
 
     public function getPlan(): RegistrationPlanInterface
@@ -43,5 +44,16 @@ class RegistrationContext
     public function getNextValidStep(): ?string
     {
         // TODO implement
+    }
+
+    /**
+     * ---------------------------------------------------
+     * ------------------Private Methods------------------
+     * ---------------------------------------------------
+     */
+
+    private function setPlan(RegistrationPlanInterface $plan): void
+    {
+        $this->plan = $plan;
     }
 }
