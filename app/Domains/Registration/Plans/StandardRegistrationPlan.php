@@ -7,27 +7,22 @@ use App\Domains\Registration\States\Standard\CompletionState;
 use App\Domains\Registration\States\Standard\DocumentUploadState;
 use App\Domains\Registration\States\Standard\PersonalInfoState;
 use App\Domains\Registration\States\Standard\VerificationState;
+use App\Foundation\Enums\PlansEnum;
+use App\Foundation\Enums\Steps\StandardStepsEnum;
 
 class StandardRegistrationPlan implements RegistrationPlanInterface
 {
 
-    public function getStates(): array
+    /**
+     * @return string<RegistrationStateInterface>
+     */
+    public static function getInitialState(): string
     {
-        return [
-            'personal_info' => PersonalInfoState::class,
-            'document_upload' => DocumentUploadState::class,
-            'verification' => VerificationState::class,
-            'completion' => CompletionState::class,
-        ];
-    }
-
-    public function getInitialState(): string
-    {
-        return collect(
-            $this->stepsFromConfig()
-        )->first(function ($step) {
-            return $step['order'] == 1;
-        });
+        foreach (self::getSteps() as $key => $step) {
+            if (isset($step['order']) && $step['order'] == 1) {
+                return StandardStepsEnum::getStateClass($key);
+            }
+        }
     }
 
     public function getName(): string
@@ -35,8 +30,16 @@ class StandardRegistrationPlan implements RegistrationPlanInterface
         return config('registration.plans.standard.name');
     }
 
-    private function stepsFromConfig(): array
+    private static function getSteps(): array
     {
-        return config('registration.plans.standard.steps');
+        return self::getConfig()['steps'];
+    }
+
+    private static function getConfig() : array
+    {
+        return config(
+            'registration.plans.' .
+            PlansEnum::STANDARD->value
+        );
     }
 }

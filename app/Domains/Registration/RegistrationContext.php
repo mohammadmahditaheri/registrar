@@ -1,49 +1,51 @@
 <?php
 
-namespace App\Domain\Registration;
+namespace App\Domains\Registration;
 
-use App\Domain\Registration\RegistrationStateInterface;
-use App\Domain\Registration\Plans\RegistrationPlanInterface;
+use App\Domains\Registration\Plans\RegistrationPlanInterface;
 
 class RegistrationContext
 {
     private RegistrationStateInterface $currentState;
     private RegistrationPlanInterface $plan;
 
-    private array $registrationData = [];
-    private string $currentStep;
-
     public function __construct(
         RegistrationPlanInterface $plan
     ) {
         $this->setPlan($plan);
         $this->currentState = $this->resolveInitialState();
+        $this->currentState->setContext($this);
+    }
+
+    public function transitionTo(
+        RegistrationStateInterface $to
+    ): bool
+    {
+        if ($this->currentState->canTransitionTo(
+            $to->getIdentifier()
+        )) {
+            $this->currentState = $to;
+            $this->currentState->setContext($this);
+
+            return true;
+        }
+
+        return false;
     }
 
     private function resolveInitialState(): RegistrationStateInterface
     {
-        // TODO implement
-        // return $this->getPlan()->getInitialState();
+        return resolve($this->getPlan()->getInitialState());
     }
 
-    public function getPlan(): RegistrationPlanInterface
+    /**
+     * Provides validation rules to be used in form request or validators
+     *
+     * @return array
+     */
+    public function getValidationRules(): array
     {
-        return $this->plan;
-    }
-
-    public function getCurrentStep(): string
-    {
-        return $this->currentStep;
-    }
-
-    public function isStepValid(string $step): bool
-    {
-        // TODO implement
-    }
-
-    public function getNextValidStep(): ?string
-    {
-        // TODO implement
+        return $this->currentState->getValidationRules();
     }
 
     /**
@@ -51,6 +53,11 @@ class RegistrationContext
      * ------------------Private Methods------------------
      * ---------------------------------------------------
      */
+
+    private function getPlan(): RegistrationPlanInterface
+    {
+        return $this->plan;
+    }
 
     private function setPlan(RegistrationPlanInterface $plan): void
     {
