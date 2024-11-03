@@ -1,10 +1,10 @@
 <?php
 
-use App\Domain\Registration\Plans\StandardRegistrationPlan;
 use App\Domain\Registration\Plans\SimplifiedRegistrationPlan;
-use App\Enums\PlansEnum;
-use App\Enums\Steps\SimplifiedStepsEnum as SimplifiedSteps;
-use App\Enums\Steps\StandardStepsEnum as StandardSteps;
+use App\Domain\Registration\Plans\StandardRegistrationPlan;
+use App\Foundation\Enums\PlansEnum;
+use App\Foundation\Enums\Steps\SimplifiedStepsEnum as SimplifiedSteps;
+use App\Foundation\Enums\Steps\StandardStepsEnum as StandardSteps;
 
 return [
     'plans' => [
