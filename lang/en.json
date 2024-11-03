@@ -1,0 +1,9 @@
+{
+  "success_resource_created": ":resource created successfully.",
+  "success_resource_updated": ":resource updated successfully.",
+  "success_resource_deleted": ":resource deleted successfully.",
+  "error_generic": "Something went wrong. Please try again.",
+  "error_unauthorized_generic": "Unauthorized access.",
+  "error_not_found_generic": "Resource not found.",
+  "error_unauthenticated": "Please log in to access this resource."
+}
