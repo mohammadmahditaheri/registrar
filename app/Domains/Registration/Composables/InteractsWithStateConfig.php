@@ -6,14 +6,14 @@ use App\Foundation\Enums\PlansEnum;
 
 trait InteractsWithStateConfig
 {
-    abstract /**
+    /**
      * @return array{
      *     order: int,
      *     external_system: bool,
      *     destinations: bool
      * }
      */
-    public function getConfig(): array;
+    abstract public function getConfig(): array;
 
     public function getValidationRules(): array
     {

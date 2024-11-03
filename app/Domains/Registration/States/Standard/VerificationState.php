@@ -18,11 +18,7 @@ class VerificationState implements RegistrationStateInterface
     }
 
     /**
-     * @return array{
-     *     order: int,
-     *     external_system: bool,
-     *     destinations: bool
-     * }
+     * @inheritDoc
      */
     public function getConfig(): array
     {

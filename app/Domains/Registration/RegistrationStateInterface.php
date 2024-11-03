@@ -9,4 +9,14 @@ interface RegistrationStateInterface
     ): void;
 
     public function getIdentifier(): string;
+
+    public function getValidationRules(): array;
+
+    public function isEnd(): bool;
+
+    public function getOrder(): int;
+
+    public function canTransitionTo(
+        string $destination
+    ): bool;
 }
