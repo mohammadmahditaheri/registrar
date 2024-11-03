@@ -11,6 +11,7 @@ return [
         PlansEnum::STANDARD->value => [
             'class' => StandardRegistrationPlan::class,
             'name' => 'Standard Registration',
+            'description' => 'Standard registration plan',
 
             /**
              * ------------------
@@ -56,8 +57,9 @@ return [
         ],
 
         PlansEnum::SIMPLIFIED->value => [
-          'class' => SimplifiedRegistrationPlan::class,
+            'class' => SimplifiedRegistrationPlan::class,
             'name' => 'Quick Registration',
+            'description' => 'Simplified and quick registration plan.',
 
             /**
              * ------------------
