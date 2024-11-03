@@ -2,9 +2,12 @@
 
 namespace App\Domains\Registration\Plans;
 
+use App\Domains\Registration\RegistrationStateInterface;
+
 interface RegistrationPlanInterface
 {
-    public function getStates(): array;
-    public function getInitialState(): string;
-    public function getName(): string;
+    /**
+     * @return string<RegistrationStateInterface>
+     */
+    public static function getInitialState(): string;
 }

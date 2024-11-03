@@ -1,10 +1,10 @@
 <?php
 
-use App\Services\Registrar\Http\Controllers\V1\ListPlansController;
+use App\Services\Registrar\Http\Controllers\V1\FetchPlansController;
 use App\Services\Registrar\Http\Controllers\V1\ProceedToNextStepController;
 use App\Services\Registrar\Http\Controllers\V1\RollbackToPreviousStepController;
 use App\Services\Registrar\Http\Controllers\V1\ShowRegistrationSessionController;
-use App\Services\Registrar\Http\Controllers\V1\StartRegistrationPlanController;
+use App\Services\Registrar\Http\Controllers\V1\StartRegistrationSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/plans')->group(function () {
     // retrieve registration plans
-    Route::get('/', ListPlansController::class);
+    Route::get('/', FetchPlansController::class);
 
     // start a registration based on a plan
-    Route::post('/{id}/start', StartRegistrationPlanController::class);
+    Route::post('/{id}/start', StartRegistrationSessionController::class);
 });
 
 

@@ -19,4 +19,7 @@ interface RegistrationStateInterface
     public function canTransitionTo(
         string $destination
     ): bool;
+
+//    public function setStepData($params): bool;
+//    public function getStepFormData($params): bool;
 }
