@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\Registration\Plans;
+namespace App\Domains\Registration\Plans;
 
-use App\Domain\Registration\States\Simplified\QuickInfoState;
-use App\Domain\Registration\States\Simplified\SimpleCompletionState;
-use App\Domain\Registration\States\Simplified\SimplifiedVerificationState;
+use App\Domains\Registration\States\Simplified\QuickInfoState;
+use App\Domains\Registration\States\Simplified\SimpleCompletionState;
+use App\Domains\Registration\States\Simplified\SimplifiedVerificationState;
 
 class SimplifiedRegistrationPlan implements RegistrationPlanInterface
 {
@@ -25,10 +25,5 @@ class SimplifiedRegistrationPlan implements RegistrationPlanInterface
     public function getName(): string
     {
         // TODO: Implement getName() method.
-    }
-
-    public function getValidationRules(): array
-    {
-        // TODO: Implement getValidationRules() method.
     }
 }

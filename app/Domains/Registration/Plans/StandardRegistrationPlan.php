@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\Registration\Plans;
+namespace App\Domains\Registration\Plans;
 
-use App\Domain\Registration\RegistrationStateInterface;
-use App\Domain\Registration\States\Standard\CompletionState;
-use App\Domain\Registration\States\Standard\DocumentUploadState;
-use App\Domain\Registration\States\Standard\PersonalInfoState;
-use App\Domain\Registration\States\Standard\VerificationState;
+use App\Domains\Registration\RegistrationStateInterface;
+use App\Domains\Registration\States\Standard\CompletionState;
+use App\Domains\Registration\States\Standard\DocumentUploadState;
+use App\Domains\Registration\States\Standard\PersonalInfoState;
+use App\Domains\Registration\States\Standard\VerificationState;
 
 class StandardRegistrationPlan implements RegistrationPlanInterface
 {
@@ -33,17 +33,6 @@ class StandardRegistrationPlan implements RegistrationPlanInterface
     public function getName(): string
     {
         return config('registration.plans.standard.name');
-    }
-
-    public function getValidationRules(
-        string|RegistrationStateInterface $step
-    ): array
-    {
-        // if ($step instanceof RegistrationStateInterface) {
-        //     $step->
-        // }
-
-        // return config('registration.plans.standard')['']
     }
 
     private function stepsFromConfig(): array

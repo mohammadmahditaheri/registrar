@@ -1,33 +1,17 @@
 <?php
 
-namespace App\Domain\Registration\States\Standard;
+namespace App\Domains\Registration\States\Standard;
 
-use App\Domain\Registration\RegistrationContext;
-use App\Domain\Registration\RegistrationStateInterface;
+use App\Domains\Registration\Composables\ReferencesToStateContext;
+use App\Domains\Registration\RegistrationContext;
+use App\Domains\Registration\RegistrationStateInterface;
 use App\Foundation\Enums\Steps\StandardStepsEnum;
 
 class CompletionState implements RegistrationStateInterface
 {
+    use ReferencesToStateContext;
 
-    public function proceed(RegistrationContext $context): void
-    {
-        // TODO: Implement proceed() method.
-    }
-
-    public function rollback(RegistrationContext $context): void
-    {
-        // TODO: Implement rollback() method.
-    }
-
-    public function validate(array $data): bool
-    {
-        // TODO: Implement validate() method.
-    }
-
-    public function getNextState(): string
-    {
-        // TODO: Implement getNextState() method.
-    }
+    private RegistrationContext $context;
 
     public function getIdentifier(): string
     {

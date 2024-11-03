@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\Registration\Factory;
+namespace App\Domains\Registration\Factory;
 
-use App\Domain\Registration\Plans\RegistrationPlanInterface;
+use App\Domains\Registration\Plans\RegistrationPlanInterface;
 use App\Exceptions\Registration\InvalidPlanException;
 
 class RegistrationPlanFactory

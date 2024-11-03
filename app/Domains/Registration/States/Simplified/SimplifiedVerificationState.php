@@ -1,33 +1,14 @@
 <?php
 
-namespace App\Domain\Registration\States\Simplified;
+namespace App\Domains\Registration\States\Simplified;
 
-use App\Domain\Registration\RegistrationContext;
-use App\Domain\Registration\RegistrationStateInterface;
+use App\Domains\Registration\Composables\ReferencesToStateContext;
+use App\Domains\Registration\RegistrationStateInterface;
 use App\Foundation\Enums\Steps\SimplifiedStepsEnum;
 
 class SimplifiedVerificationState implements RegistrationStateInterface
 {
-
-    public function proceed(RegistrationContext $context): void
-    {
-        // TODO: Implement proceed() method.
-    }
-
-    public function rollback(RegistrationContext $context): void
-    {
-        // TODO: Implement rollback() method.
-    }
-
-    public function validate(array $data): bool
-    {
-        // TODO: Implement validate() method.
-    }
-
-    public function getNextState(): string
-    {
-        // TODO: Implement getNextState() method.
-    }
+    use ReferencesToStateContext;
 
     public function getIdentifier(): string
     {

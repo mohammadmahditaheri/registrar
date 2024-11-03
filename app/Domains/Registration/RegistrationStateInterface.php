@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Domain\Registration;
+namespace App\Domains\Registration;
 
 interface RegistrationStateInterface
 {
-    public function proceed(RegistrationContext $context): void;
-
-    public function rollback(RegistrationContext $context): void;
-
-    public function validate(array $data): bool;
-
-    public function getNextState(): string;
+    public function setContext(
+        RegistrationContext $context,
+    ): void;
 
     public function getIdentifier(): string;
 }

@@ -1,7 +1,7 @@
 <?php
 
-use App\Domain\Registration\Plans\SimplifiedRegistrationPlan;
-use App\Domain\Registration\Plans\StandardRegistrationPlan;
+use App\Domains\Registration\Plans\SimplifiedRegistrationPlan;
+use App\Domains\Registration\Plans\StandardRegistrationPlan;
 use App\Foundation\Enums\PlansEnum;
 use App\Foundation\Enums\Steps\SimplifiedStepsEnum as SimplifiedSteps;
 use App\Foundation\Enums\Steps\StandardStepsEnum as StandardSteps;
